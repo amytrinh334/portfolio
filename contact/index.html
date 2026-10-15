@@ -5,43 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
     <link rel="stylesheet" href="../style.css">
+     <script type="module" src="../global.js"></script>
 </head>
 
 <body class="contact">
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../projects/index.html">Projects</a>
-        <a href="../resume/index.html">Resume</a>
-        <a href="index.html" class="current">Contact</a>
-        <a href="https://github.com/amytrinh334" target="_blank">GitHub Profile</a>
-    </nav>
-
 
     <h1>Contact Me!</h1>
 
-    <form
-      action="mailto:a6trinh@ucsd.edu"
-      method="POST"
-      enctype="text/plain">
+    <form action="mailto:a6trinh@ucsd.edu">
+        <label>
+            Subject
+            <input name="subject" placeholder="your subject here...">
+        </label>
 
-      <!-- Wrap the inputs INSIDE the labels -->
-      <label>
-        Email Address
-        <input type="email" name="email" placeholder="your email here...">
-      </label>
+        <label>
+            Message
+            <textarea name="body" placeholder="your message here..."></textarea>
+        </label>
 
-      <label>
-        Subject
-        <input name="subject" placeholder="your subject here...">
-      </label>
-
-      <label>
-        Message
-        <textarea name="body" placeholder="your message here..."></textarea>
-      </label>
-
-      <button>Submit</button>
-
+        <button>Submit</button>
     </form>
     
 </body>
