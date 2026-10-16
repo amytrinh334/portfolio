@@ -15,11 +15,13 @@ function $$(selector, context = document) {
 
 
 // Step 3
+const ARE_WE_HOME = document.body.classList.contains('home');
+
 let pages = [
-  { url: '/portfolio/', title: 'Home' },
-  { url: '/portfolio/projects/', title: 'Projects' },
-  { url: '/portfolio/resume/', title: 'Resume' },
-  { url: '/portfolio/contact/', title: 'Contact' },
+  { url: ARE_WE_HOME ? 'index.html' : '../index.html', title: 'Home' },
+  { url: ARE_WE_HOME ? 'projects/index.html' : '../projects/index.html', title: 'Projects' },
+  { url: ARE_WE_HOME ? 'resume/index.html' : '../resume/index.html', title: 'Resume' },
+  { url: ARE_WE_HOME ? 'contact/index.html' : '../contact/index.html', title: 'Contact' },
   { url: 'https://github.com/amytrinh334', title: 'GitHub Profile' }
 ];
 
