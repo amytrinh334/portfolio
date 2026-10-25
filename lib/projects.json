@@ -1,6 +1,6 @@
 [{
     "title": "DSC 106 Expository Visualization",
-    "image": "./images/dsc106_project1.png",
+    "image": "../portfolio/images/dsc106_project1.png",
     "year": "2026",
     "description": "Using the proper design workflow, I created a graph showing the relationship between sugar levels and cereals with different processing levels."
 },
