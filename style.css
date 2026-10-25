@@ -129,6 +129,12 @@ form button:hover {
 .project h1 {
   font-size: 300%;
 }
+.projects article img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 
 
 /* Resume Page Styles */
@@ -146,3 +152,20 @@ form button:hover {
 }
 
 
+
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+}
+
+/* Force all labels to the first row */
+#profile-stats dt {
+  grid-row: 1;
+}
+
+/* Force all numbers to the second row */
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0; 
+}
