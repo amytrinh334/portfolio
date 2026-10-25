@@ -1,47 +1,47 @@
 [{
     "title": "DSC 106 Expository Visualization",
-    "image": "../images/dsc106_project1.png",
+    "image": "./images/dsc106_project1.png",
     "year": "2026",
     "description": "Using the proper design workflow, I created a graph showing the relationship between sugar levels and cereals with different processing levels."
 },
  {
     "title": "DSC 106 Persuasive or Deceptive Visualization",
-    "image": "../images/dsc106_project2.png",
+    "image": "./images/dsc106_project2.png",
     "year": "2026",
     "description": "Working in a group, my team attempted to create visualizations about the United States military expenditure and incorporate deceptive visualization techniques."
 }, 
  {
     "title": "IDX Exchange House Price Predictor",
-    "image": "../images/idxexchange.png",
+    "image": "./images/idxexchange.png",
     "year": "2026",
     "description": "During a summer internship, I developed and trained a machine learning model to predict housing close prices from different predictors."
 },
 {
     "title": "IDX Exchange Data Analysis",
-    "image": "../images/idxtableau.png",
+    "image": "./images/idxtableau.png",
     "description": "In the spring, I created Tableau visualizations dashboard of different housing market metrics in California."
 },
  {
     "title": "League of Legends Statistical Analysis",
-    "image": "../images/lolanalysis.png",
+    "image": "./images/lolanalysis.png",
     "year": "2026",
     "description": "As a final project, I did a statistical analysis on whether kills and monster matched in a League of Legends game impact whether a teams wins or loses."
 },
  {
     "title": "ArgoBuddy",
-    "image": "../images/argobuddy.png",
+    "image": "./images/argobuddy.png",
     "year": "2026",
     "description": "I helped develop a webapp that allows users to adopt an ArgoBot and learn information about the ocean for DataHacks 2026."
 }, 
  {
     "title": "Quizski",
     "year": "2025",
-    "image": "../images/quizski.png",
+    "image": "./images/quizski.png",
     "description": "I helped develop a gamified learning app with a Smiski gacha system for the DiamondHacks competition."
 },
  {
     "title": "Amazon Data Analysis",
-    "image": "../images/amazon.png",
+    "image": "./images/amazon.png",
     "year": "2025",
     "description": "An explortory data analysis on Amazon products to see the relationships between pricing, ratings, and trends that drive e-commerce success."
 },
