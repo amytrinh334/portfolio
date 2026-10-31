@@ -135,6 +135,83 @@ form button:hover {
   object-fit: cover;
 }
 
+.project-year {
+  font-family: Baskerville, serif; 
+  font-variant-numeric: oldstyle-nums; 
+  color: #555; 
+}
+
+#projects-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); 
+  flex: 1; 
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+  list-style: none; 
+  border: 1px solid #ccc; 
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.legend li {
+  display: flex;
+  align-items: center; 
+  gap: 0.5em; 
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1 / 1; 
+  background-color: var(--color); 
+  border-radius: 50%; 
+}
+
+.searchBar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  margin: 2rem 0; 
+  font-size: 1rem;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+
+
+
 
 
 /* Resume Page Styles */
