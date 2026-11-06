@@ -246,3 +246,125 @@ path {
   grid-row: 2;
   margin: 0; 
 }
+
+
+
+/* Meta Page */
+#stats h2 {
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.stats dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.stats dd {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 300;
+}
+
+.gridlines .domain {
+  display: none;
+}
+
+/* Make the grid lines light gray and slightly transparent */
+.gridlines .tick line {
+  stroke: #e0e0e0;
+  stroke-opacity: 0.7;
+}
+
+/* Tooltip Data Grid */
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto; 
+  gap: 0.5em; 
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+dl.info dt {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+dl.info dd {
+  margin: 0; 
+  font-weight: bold;
+}
+
+/* Tooltip Positioning */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+
+/* Dot Hover Effects */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.5em;
+  margin: 0;
+  
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  border-radius: 8px;
+  padding: 1em; 
+  
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
