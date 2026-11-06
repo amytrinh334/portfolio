@@ -3,7 +3,7 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
     ...row,
-    line: Number(row.line), // or just +row.line
+    line: Number(row.line), 
     depth: Number(row.depth),
     length: Number(row.length),
     date: new Date(row.date + 'T00:00' + row.timezone),
@@ -34,8 +34,6 @@ function processCommits(data) {
 
       Object.defineProperty(ret, 'lines', {
         value: lines,
-        // What other options do we need to set?
-        // Hint: look up configurable, writable, and enumerable
       });
 
       return ret;
@@ -82,7 +80,6 @@ function renderCommitInfo(data, commits) {
 
 
 function renderScatterPlot(data, commits) {
-  // Put all the JS code of Steps inside this function
   const width = 1000;
   const height = 600;
 
@@ -141,7 +138,6 @@ function renderScatterPlot(data, commits) {
   xScale.range([usableArea.left, usableArea.right]);
   yScale.range([usableArea.bottom, usableArea.top]);
 
-  // Add gridlines BEFORE the axes
   const gridlines = svg
   .append('g')
   .attr('class', 'gridlines')
@@ -159,20 +155,16 @@ function renderScatterPlot(data, commits) {
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale).tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
 
-  // Add X axis
   svg
   .append('g')
   .attr('transform', `translate(0, ${usableArea.bottom})`)
   .call(xAxis);
   
-  // Add Y axis
   svg
   .append('g')
   .attr('transform', `translate(${usableArea.left}, 0)`)
   .call(yAxis);
 
-
-  // Step 5.4: Function to determine if a single commit is within the brush selection
   function isCommitSelected(selection, commit) {
     if (!selection) {
       return false;
@@ -181,15 +173,12 @@ function renderScatterPlot(data, commits) {
     const [x0, x1] = selection.map(d => d[0]);
     const [y0, y1] = selection.map(d => d[1]);
     
-    // Map the commit data to X and Y coordinates using your existing scales
     const x = xScale(commit.datetime);
     const y = yScale(commit.hourFrac);
     
-    // Return true if the dot's coordinates fall within the brush rectangle
     return x >= x0 && x <= x1 && y >= y0 && y <= y1;
   }
 
-  // Step 5.5: Function to update the count text
   function renderSelectionCount(selection) {
     const selectedCommits = selection
       ? commits.filter((d) => isCommitSelected(selection, d))
@@ -219,14 +208,12 @@ function renderScatterPlot(data, commits) {
     const requiredCommits = selectedCommits.length ? selectedCommits : commits;
     const lines = requiredCommits.flatMap((d) => d.lines);
 
-    // Use d3.rollup to count lines per language
     const breakdown = d3.rollup(
       lines,
       (v) => v.length,
       (d) => d.type
     );
 
-    // Update DOM with breakdown
     container.innerHTML = '';
 
     for (const [language, count] of breakdown) {
@@ -266,7 +253,6 @@ function renderTooltipContent(commit) {
   const lines = document.getElementById('commit-lines');
 
   if (Object.keys(commit).length === 0) {
-    // Clear tooltip content when not hovering
     link.href = '';
     link.textContent = '';
     date.textContent = '';

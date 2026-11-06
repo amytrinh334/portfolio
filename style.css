@@ -283,13 +283,11 @@ path {
   display: none;
 }
 
-/* Make the grid lines light gray and slightly transparent */
 .gridlines .tick line {
   stroke: #e0e0e0;
   stroke-opacity: 0.7;
 }
 
-/* Tooltip Data Grid */
 dl.info {
   display: grid;
   grid-template-columns: max-content auto; 
@@ -312,14 +310,12 @@ dl.info dd {
   font-weight: bold;
 }
 
-/* Tooltip Positioning */
 .tooltip {
   position: fixed;
   top: 1em;
   left: 1em;
 }
 
-/* Dot Hover Effects */
 circle {
   transition: 200ms;
   transform-origin: center;
