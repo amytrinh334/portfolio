@@ -22,6 +22,7 @@ let pages = [
   { url: ARE_WE_HOME ? 'projects/index.html' : '../projects/index.html', title: 'Projects' },
   { url: ARE_WE_HOME ? 'resume/index.html' : '../resume/index.html', title: 'Resume' },
   { url: ARE_WE_HOME ? 'contact/index.html' : '../contact/index.html', title: 'Contact' },
+  { url: ARE_WE_HOME ? 'meta/index.html' : '../meta/index.html', title: 'Meta' },
   { url: 'https://github.com/amytrinh334', title: 'GitHub Profile' }
 ];
 
