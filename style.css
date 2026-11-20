@@ -453,3 +453,34 @@ circle.selected {
   background: var(--color);
   border-radius: 50%;
 }
+
+#scrolly-1,
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+#scrolly-1 > *,
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#scatter-story,
+#files-story {
+  position: relative;
+}
+
+#scatter-plot,
+#files-plot {
+  position: sticky;
+  top: 1rem;
+  left: 0;
+  bottom: auto;
+  align-self: flex-start;
+}
+
+.step {
+  padding-bottom: 1.5rem;
+}
