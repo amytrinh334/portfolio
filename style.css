@@ -320,6 +320,9 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -363,4 +366,90 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 circle.selected {
   fill: #ff6b6b;
+}
+
+
+#time-filter {
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+#time-filter label {
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+#commit-time {
+  margin-left: auto;
+}
+
+#commit-progress {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) var(--progress, 100%),
+    #ddd var(--progress, 100%),
+    #ddd 100%
+  );
+  cursor: pointer;
+}
+
+#commit-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+}
+
+#files dt small {
+  display: block;
+  font-size: 0.75em;
+  opacity: 0.6;
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
 }

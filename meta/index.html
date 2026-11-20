@@ -16,6 +16,25 @@
     <h1>Meta</h1>
     <p>This page includes the stats about the code of this website. </p>
 
+    
+    <div id="time-filter">
+        <label for="commit-progress"> Show commits until:
+            <input type="range" id="commit-progress" min="0" max="100" value="0" />
+            <time id="commit-time"></time>
+        </label>
+    </div>
+
+    <dl id="files">
+        <!-- we want the following structure for each file:
+         <div>
+            <dt>
+                <code>{file.name}</code>
+            </dt>
+            <dd>{file.lines.length} lines</dd>
+        </div> -->
+    </dl>
+
+
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
