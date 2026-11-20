@@ -339,7 +339,14 @@ renderScatterPlot(data, commits);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 function updateFileDisplay(filteredCommits) {
-  let lines = filteredCommits.flatMap((d) => d.lines);
+  let lines = filteredCommits
+    .flatMap((d) => d.lines)
+    .filter(
+      (d) =>
+        !d.file.startsWith('node_modules/') &&
+        d.file !== 'meta/loc.csv'
+    );
+  
   let files = d3
     .groups(lines, (d) => d.file)
     .map(([name, lines]) => {
@@ -363,10 +370,12 @@ function updateFileDisplay(filteredCommits) {
     .select('dt')
     .html((d) => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
 
+  const MAX_DOTS = 100; 
+  
   filesContainer
     .select('dd')
     .selectAll('div')
-    .data((d) => d.lines)
+    .data((d) => d.lines.slice(0, MAX_DOTS))
     .join('div')
     .attr('class', 'loc')
     .attr('style', (d) => `--color: ${colors(d.type)}`);

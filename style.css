@@ -415,7 +415,8 @@ circle.selected {
 
 #files {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 0.5rem 1rem;
 }
 
 #files > div {
@@ -426,12 +427,23 @@ circle.selected {
 
 #files dt {
   grid-column: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 #files dt small {
   display: block;
   font-size: 0.75em;
   opacity: 0.6;
+}
+
+#files-plot {
+  position: sticky;
+  top: 1rem;
+  left: 0;
+  bottom: auto;
+  align-self: flex-start;
+  min-width: 0;
 }
 
 #files dd {
@@ -444,6 +456,7 @@ circle.selected {
   gap: 0.15em;
   padding-top: 0.6em;
   margin-left: 0;
+  min-width: 0;
 }
 
 .loc {
