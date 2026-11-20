@@ -459,12 +459,24 @@ circle.selected {
   min-width: 0;
 }
 
+@keyframes fadeInDot {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .loc {
   display: flex;
   width: 0.5em;
   aspect-ratio: 1;
   background: var(--color);
   border-radius: 50%;
+  animation: fadeInDot 350ms ease forwards;
 }
 
 #scrolly-1,

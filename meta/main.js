@@ -346,13 +346,20 @@ function updateFileDisplay(filteredCommits) {
         !d.file.startsWith('node_modules/') &&
         d.file !== 'meta/loc.csv'
     );
-  
+
   let files = d3
     .groups(lines, (d) => d.file)
     .map(([name, lines]) => {
       return { name, lines };
     })
     .sort((a, b) => b.lines.length - a.lines.length);
+
+  const oldPositions = new Map();
+  d3.select('#files')
+    .selectAll(':scope > div')
+    .each(function (d) {
+      oldPositions.set(d.name, this.getBoundingClientRect().top);
+    });
 
   let filesContainer = d3
     .select('#files')
@@ -370,8 +377,7 @@ function updateFileDisplay(filteredCommits) {
     .select('dt')
     .html((d) => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
 
-  const MAX_DOTS = 100; 
-  
+  const MAX_DOTS = 100;
   filesContainer
     .select('dd')
     .selectAll('div')
@@ -379,6 +385,23 @@ function updateFileDisplay(filteredCommits) {
     .join('div')
     .attr('class', 'loc')
     .attr('style', (d) => `--color: ${colors(d.type)}`);
+
+  filesContainer.each(function (d) {
+    const oldTop = oldPositions.get(d.name);
+    if (oldTop === undefined) return; 
+
+    const newTop = this.getBoundingClientRect().top;
+    const deltaY = oldTop - newTop;
+
+    if (deltaY !== 0) {
+      this.style.transition = 'none';
+      this.style.transform = `translateY(${deltaY}px)`;
+
+      this.getBoundingClientRect();
+      this.style.transition = 'transform 400ms ease';
+      this.style.transform = 'translateY(0)';
+    }
+  });
 }
 
 // Helper function to generate commit descriptions inside any story container
@@ -411,7 +434,6 @@ function renderStory(selector) {
     );
 }
 
-// Render both stories
 renderStory('#scatter-story');
 renderStory('#files-story');
 
@@ -441,5 +463,4 @@ scroller2
     updateFileDisplay(filtered);
   });
 
-// Initialize file display on page load
 updateFileDisplay(commits);
